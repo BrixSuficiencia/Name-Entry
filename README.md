@@ -6,9 +6,11 @@ A simple Laravel + React application that allows users to submit names (first na
 
 - **Form Submission**: Add first and last names through a clean, responsive form
 - **Real-time Updates**: Names are immediately displayed in the table after submission
-- **Modern UI**: Built with React and Tailwind CSS for a beautiful, responsive design
+- **Duplicate Prevention**: Automatically checks for and prevents duplicate first and last name combinations
+- **Modern UI**: Built with React and Tailwind CSS for a beautiful, centered design
 - **Database Storage**: PostgreSQL database with proper migrations and models
 - **API Backend**: RESTful API endpoints for creating and retrieving names
+- **Error Handling**: User-friendly error notifications with auto-dismiss functionality
 
 ## Tech Stack
 
@@ -22,7 +24,7 @@ A simple Laravel + React application that allows users to submit names (first na
 
 - PHP 8.2 or higher
 - Composer
-- Node.js 20.19+ or 22.12+
+- Node.js 20.11+ (20.19+ recommended for optimal performance)
 - npm or yarn
 - PostgreSQL database
 
@@ -78,10 +80,11 @@ A simple Laravel + React application that allows users to submit names (first na
 ## Usage
 
 1. Open your browser and navigate to `http://localhost:8000`
-2. You'll see a form at the top where you can enter first and last names
+2. You'll see a centered form where you can enter first and last names
 3. Submit the form to add names to the database
 4. Names will appear in the table below the form
-5. The table shows First Name, Last Name, and Date Added columns
+5. The table shows First Name and Last Name columns
+6. Duplicate names are automatically prevented with clear error messages
 
 ## API Endpoints
 
@@ -93,6 +96,7 @@ A simple Laravel + React application that allows users to submit names (first na
 - **Frontend Development**: Run `npm run dev` for hot reloading
 - **Backend Development**: The Laravel server will automatically reload on file changes
 - **Database Changes**: Create new migrations with `php artisan make:migration`
+- **Asset Building**: Run `npm run build` after making frontend changes
 
 ## Project Structure
 
@@ -104,18 +108,23 @@ A simple Laravel + React application that allows users to submit names (first na
 │   └── migrations/
 ├── resources/
 │   ├── js/
-│   │   ├── App.jsx
-│   │   ├── app.jsx
-│   │   └── components/
-│   │       ├── NameForm.jsx
-│   │       └── NameTable.jsx
+│   │   └── app.jsx          # Main React component (single file)
 │   ├── views/
-│   │   └── app.blade.php
+│   │   └── app.blade.php    # Main Blade template
 │   └── css/
+│       └── app.css          # Tailwind CSS with custom animations
 ├── routes/
 │   └── web.php
 └── vite.config.js
 ```
+
+## Key Features Implementation
+
+- **Single React Component**: All frontend logic is contained in `resources/js/app.jsx`
+- **Responsive Design**: Fixed-width layout (384px) with centered positioning
+- **Error Notifications**: Floating error messages with smooth animations
+- **Form Validation**: Client-side validation for required fields and duplicate names
+- **Modern Styling**: Gradient backgrounds, shadows, and hover effects using Tailwind CSS
 
 ## Deployment
 
